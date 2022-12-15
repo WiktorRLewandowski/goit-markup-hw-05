@@ -17,7 +17,14 @@
   <link rel="stylesheet" href="./css/styles.css" class="style" />
 </head>
 
+
 <body>
+  <div class="modal is-hidden backdrop" data-modal>
+    <div class="modal-window">
+      <button class="button-close" data-modal-close>x</button>
+    </div>
+  </div>
+
   <header class="header">
     <!-- navigation bar -->
 
@@ -50,7 +57,8 @@
 
     <div class="header-banner">
       <h1>efektywne rozwiązania dla waszego biznesu</h1>
-      <button class="button" type="button">Zamów usługę</button>
+      <button class="button" type="button" data-modal-open>Zamów usługę</button>
+
     </div>
   </header>
   <main>
@@ -378,6 +386,7 @@
       </div>
     </div>
   </footer>
+  <script src="./js/modal.js"></script>
 </body>
 
 </html>
