@@ -19,11 +19,13 @@
 
 
 <body>
-  <div class="modal is-hidden" data-modal>
-    <div class="modal-window">
-      <button class="button-close" data-modal-close><svg class="icon" width="18px" height="18px">
-          <use href="./images/icons.svg#icon-close-black"></use>
-        </svg></button>
+  <div class="is-hidden" data-modal>
+    <div class="modal">
+      <div class="modal-window">
+        <button class="button-close" type="button" data-modal-close><svg class="icon" width="18px" height="18px">
+            <use href="./images/icons.svg#icon-close-black"></use>
+          </svg></button>
+      </div>
     </div>
   </div>
 
@@ -384,8 +386,20 @@
           </li>
 
         </ul>
-
       </div>
+
+      <!-- <div class="newsletter">
+        <form action="">
+          <label class="newsletter__label">
+            <h3 class="newsletter__label-header">zapisz się do newslettera</h3>
+            <input class="newsletter-input" type="email" name="email" placeholder="E-mail">
+          </label>
+          <button class="newsletter-button">Zapisz się <svg class="icon" width="24px" height="24px">
+              <use href="./images/icons.svg#icon-send"></use>
+            </svg></button>
+        </form>
+      </div> -->
+
     </div>
   </footer>
   <script src="./js/modal.js"></script>

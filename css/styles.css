@@ -50,6 +50,7 @@
         7.5.our clients
 
       8. socials links
+        8.1. newsletter styling
 
       9. portfolio page
 
@@ -59,6 +60,13 @@
 
 ::selection {
   background-color: var(--brand-clr);
+  color: var(--primary-address-font-clr);
+}
+
+*:focus {
+  outline: none;
+
+  filter: drop-shadow(0 0 0.25em var(--brand-clr));
 }
 
 body {
@@ -82,7 +90,7 @@ body {
 }
 
 .section-portfolio {
-  padding-bottom: 94px;
+  padding: 94px;
 
 }
 
@@ -185,7 +193,15 @@ body {
   visibility: hidden;
   opacity: 0;
 
-  /* transform: scaleY(0); */
+  transition: visibility, opacity, 2000ms cubic-bezier(1, -0.3, .84, .74);
+}
+
+.is-hidden .modal {
+  opacity: 0;
+}
+
+.is-hidden .modal-window {
+  transform: scaleY(0);
 }
 
 .modal {
@@ -203,26 +219,13 @@ body {
 
   background-image: linear-gradient(#00000033, #00000033);
 
-  /* transition: transform 500ms ease-out;
-  transform: scaleY(1); */
-}
+  /* visibility: visible; */
+  transition: visibility, opacity, 500ms;
 
-.modal:not(.is-hidden) {
-  animation-name: modalAnimation;
-  animation-duration: 500ms;
-}
-
-.modal .is-hidden {
-  animation-name: modalClose;
-  animation-duration: 500ms;
+  opacity: 1;
 }
 
 .modal-window {
-  /* position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%), scale(1); */
-
   position: relative;
 
   background-color: var(--section-bg-clr);
@@ -238,12 +241,10 @@ body {
     0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
 
-  /* transition: transform 500ms ease-out;
-  transform: scale(1);
-  opacity: 1; */
-
-  animation-name: modalAnimation;
-  animation-duration: 500ms;
+  transition: transform 250ms ease-out;
+  transition-delay: 100ms;
+  transform: scaleY(1);
+  opacity: 1;
 }
 
 .button-close {
@@ -264,33 +265,13 @@ body {
   padding: 5px;
 }
 
+.button-close:hover {
+  fill: var(--brand-clr);
+}
+
 .button-close:active {
   box-shadow: inset 1px 1px 3px #333333;
 }
-
-
-@keyframes modalAnimation {
-  0% {
-    transform: scaleY(0);
-    opacity: 0;
-  }
-
-  100% {
-    transform: scaleY(1);
-    opacity: 1;
-  }
-}
-
-/* @keyframes modalClose {
-  0% {
-    transform: scaleY(1);
-  }
-
-  100% {
-    transform: scaleY(0);
-  }
-} */
-
 
 /* navigation bar */
 
@@ -707,6 +688,44 @@ body {
   fill: var(--icon-secondary-clr);
 }
 
+/* newsletter styling */
+
+.newsletter {
+  margin: 12px 0 0 78px;
+}
+
+.newsletter__label-header {
+  margin-bottom: 20px;
+}
+
+.newsletter-input {
+  background-color: var(--header-footer-bg-clr);
+  color: var(--secondary-address-font-clr);
+
+  margin-right: 10px;
+  padding: 15px 16px;
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  border-radius: 4px;
+}
+
+.newsletter form {
+  display: flex;
+  align-items: flex-end;
+}
+
+.newsletter-button {
+  color: var(--primary-address-font-clr);
+
+  background: #2196F3;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+
+  padding: 10px 42px;
+}
+
+.newsletter
 /* portfolio */
 
 .portfolio {
@@ -759,6 +778,10 @@ body {
   overflow: hidden;
 }
 
+.projects-overlay img {
+  display: block;
+}
+
 .overlay {
   position: absolute;
   width: 100%;
@@ -774,7 +797,7 @@ body {
   line-height: 1.55;
   text-align: left;
 
-  transform: translateY(100%);
+  transform: translateY(101%);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
